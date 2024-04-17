@@ -6,8 +6,7 @@
 * @h: head of linked list
 * @key: key of node
 * @value: value of node
-* Return: 1 if succesful, 0 if not match, -1
-if malloc failed
+* Return: 1 if succesful, 0 if not match, -1 if malloc failed
 */
 int update_key(hash_node_t **h, const char *key, const char *value)
 {
@@ -28,8 +27,7 @@ return (0);
 }
 
 /**
-* add_node - adds a node to the beginning of a linked
-list hash_node_t
+* add_node - adds a node to the beginning of a linked list hash_node_t
 * @h: head of the linked list
 * @key: key of node
 * @value: value of node
@@ -75,8 +73,7 @@ return (*h);
  * @value: The value associated with the key
  *(must be duplicated).
  *
- * Return: 1 if the operation succeeded,
- * 0 otherwise.
+ * Return: 1 if the operation succeeded, 0 otherwise.
  */
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
@@ -84,12 +81,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 unsigned long int index;
 hash_node_t *new;
 int update;
-
 if (!ht || strcmp(key, "") == 0)
 return (0);
-
 index = key_index((const unsigned char *)key, ht->size);
-
 update = update_key(&(ht->array[index]), key, value);
 /* update == 0 when no key was found */
 if (update == 0)
